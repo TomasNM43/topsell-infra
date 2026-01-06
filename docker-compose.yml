@@ -1,0 +1,16 @@
+﻿services:
+  topsell-db:
+    image: postgres:18.1-alpine
+    container_name: topsell_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: topsell_user
+      POSTGRES_PASSWORD: secret_password
+      POSTGRES_DB: topsell_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
